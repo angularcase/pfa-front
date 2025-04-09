@@ -9,10 +9,16 @@ import { HttpLink } from 'apollo-angular/http';
 import { InMemoryCache } from '@apollo/client/core';
 import { environment } from '../environments/environment';
 
+import { provideTranslateService } from '@ngx-translate/core';
+
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), 
+  providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }), 
     provideRouter(routes),
     // provideClientHydration(withEventReplay()),
+    provideTranslateService({
+      defaultLanguage: 'en'
+     }),
     provideHttpClient(),
     provideApollo(() => {
       const httpLink = inject(HttpLink);
