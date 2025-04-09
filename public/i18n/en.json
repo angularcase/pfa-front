@@ -1,4 +1,8 @@
 {
+    "ROUTES": {
+        "home": "home",
+        "contact": "contact"
+    },
     "app": {
         "shared": {
             "title": "PFA - Products for animals"

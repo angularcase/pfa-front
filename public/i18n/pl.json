@@ -1,4 +1,8 @@
 {
+    "ROUTES": {
+        "home": "strona-glowna",
+        "contact": "kontakt"
+    },
     "app": {
         "shared": {
             "title": "PFA - Produkty dla zwierząt"

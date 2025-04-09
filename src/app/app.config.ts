@@ -12,11 +12,20 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 import { provideTranslateService, TranslateLoader, TranslateService } from '@ngx-translate/core';
 
-import { LocalizeParser, LocalizeRouterSettings, withLocalizeRouter } from '@gilsdav/ngx-translate-router';
+import { LocalizeParser, LocalizeRouterSettings, ManualParserLoader, withLocalizeRouter } from '@gilsdav/ngx-translate-router';
 import { Location } from '@angular/common';
 
 const httpLoaderFactory: (http: HttpClient) => TranslateHttpLoader = (http: HttpClient) =>
   new TranslateHttpLoader(http, './i18n/', '.json');
+
+export function createTranslateRouteLoader(
+  translate: TranslateService,
+  location: Location,
+  localizeSettings: LocalizeRouterSettings
+) {
+  // W przykładzie przekazujemy listę obsługiwanych języków, np. ['en', 'pl']
+  return new ManualParserLoader(translate, location, localizeSettings, ['pl', 'en']);
+}
 
 export const appConfig: ApplicationConfig = {
   providers: [
