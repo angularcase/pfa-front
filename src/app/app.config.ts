@@ -1,16 +1,19 @@
 import { ApplicationConfig, provideZoneChangeDetection, inject } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withDisabledInitialNavigation } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
-import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
 import { provideApollo } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular/http';
 import { InMemoryCache } from '@apollo/client/core';
 import { environment } from '../environments/environment';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
-import { provideTranslateService, TranslateLoader } from '@ngx-translate/core';
+import { provideTranslateService, TranslateLoader, TranslateService } from '@ngx-translate/core';
+
+import { LocalizeParser, LocalizeRouterSettings, withLocalizeRouter } from '@gilsdav/ngx-translate-router';
+import { Location } from '@angular/common';
 
 const httpLoaderFactory: (http: HttpClient) => TranslateHttpLoader = (http: HttpClient) =>
   new TranslateHttpLoader(http, './i18n/', '.json');
@@ -18,7 +21,6 @@ const httpLoaderFactory: (http: HttpClient) => TranslateHttpLoader = (http: Http
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }), 
-    provideRouter(routes),
     // provideClientHydration(withEventReplay()),
     provideTranslateService({
       loader: {
@@ -27,7 +29,7 @@ export const appConfig: ApplicationConfig = {
         deps: [HttpClient],
       },
      }),
-    provideHttpClient(),
+    provideHttpClient(withFetch()),
     provideApollo(() => {
       const httpLink = inject(HttpLink);
 
@@ -37,5 +39,19 @@ export const appConfig: ApplicationConfig = {
         }),
         cache: new InMemoryCache(),
       };
-    })]
+    }),
+    provideRouter(
+      routes,
+      withDisabledInitialNavigation(),
+      withLocalizeRouter(routes, { // <--
+        parser: {
+          provide: LocalizeParser,
+          useFactory: (createTranslateRouteLoader),
+          deps: [TranslateService, Location, LocalizeRouterSettings]
+        },
+        initialNavigation: true
+      })
+    ),
+  
+  ]
 };
