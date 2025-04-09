@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-article',
@@ -6,6 +6,11 @@ import { Component } from '@angular/core';
   templateUrl: './article.component.html',
   styleUrl: './article.component.scss'
 })
-export class ArticleComponent {
+export class ArticleComponent implements OnInit {
 
+  @Input() id!: string;
+
+  ngOnInit() {
+    console.log(this.id);
+  }
 }

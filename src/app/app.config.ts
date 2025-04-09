@@ -1,5 +1,5 @@
 import { ApplicationConfig, provideZoneChangeDetection, inject } from '@angular/core';
-import { provideRouter, withDisabledInitialNavigation } from '@angular/router';
+import { provideRouter, withComponentInputBinding, withDisabledInitialNavigation } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
@@ -50,8 +50,9 @@ export const appConfig: ApplicationConfig = {
     }),
     provideRouter(
       routes,
+      withComponentInputBinding(),
       withDisabledInitialNavigation(),
-      withLocalizeRouter(routes, { // <--
+      withLocalizeRouter(routes, {
         parser: {
           provide: LocalizeParser,
           useFactory: (createTranslateRouteLoader),

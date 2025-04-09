@@ -1,7 +1,8 @@
 {
     "ROUTES": {
         "home": "strona-glowna",
-        "contact": "kontakt"
+        "contact": "kontakt",
+        "article": "artykul"
     },
     "app": {
         "shared": {

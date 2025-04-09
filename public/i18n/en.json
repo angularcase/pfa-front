@@ -1,7 +1,8 @@
 {
     "ROUTES": {
         "home": "home",
-        "contact": "contact"
+        "contact": "contact",
+        "article": "article"
     },
     "app": {
         "shared": {
