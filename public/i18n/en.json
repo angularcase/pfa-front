@@ -1,3 +1,15 @@
 {
-    "hello": "Hello"
+    "app": {
+        "shared": {
+            "title": "PFA - Products for animals"
+        },
+        "pages": {
+            "home": {
+                "title": "Home"
+            },
+            "contact": {
+                "title": "Contact"
+            }
+        }
+    }
 }
