@@ -23,7 +23,6 @@ export function createTranslateRouteLoader(
   location: Location,
   localizeSettings: LocalizeRouterSettings
 ) {
-  // W przykładzie przekazujemy listę obsługiwanych języków, np. ['en', 'pl']
   return new ManualParserLoader(translate, location, localizeSettings, ['pl', 'en']);
 }
 
