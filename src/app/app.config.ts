@@ -10,7 +10,11 @@ import { InMemoryCache } from '@apollo/client/core';
 import { environment } from '../environments/environment';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(withEventReplay()), provideHttpClient(), provideApollo(() => {
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), 
+    provideRouter(routes),
+    // provideClientHydration(withEventReplay()),
+    provideHttpClient(),
+    provideApollo(() => {
       const httpLink = inject(HttpLink);
 
       return {
