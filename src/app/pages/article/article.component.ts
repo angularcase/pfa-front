@@ -40,6 +40,7 @@ export class ArticleComponent implements OnInit {
                 name
               },
               downloads {
+                documentId,
                 url,
                 caption
               }

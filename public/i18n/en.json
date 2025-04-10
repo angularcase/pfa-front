@@ -7,7 +7,8 @@
     },
     "app": {
         "links": {
-            "articles": "Articles"
+            "articles": "Articles",
+            "contact": "Contact"
         },
         "shared": {
             "title": "PFA - Products for animals"
