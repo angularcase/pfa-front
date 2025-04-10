@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Apollo, gql } from 'apollo-angular';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-article',
@@ -13,6 +14,10 @@ export class ArticleComponent implements OnInit {
   @Input() slug!: string;
 
   article: any;
+
+  get apiUrl() {
+    return environment.strapiUrl;
+  }
 
   constructor(
     private apollo: Apollo,
@@ -33,6 +38,10 @@ export class ArticleComponent implements OnInit {
               categories {
                 documentId,
                 name
+              },
+              downloads {
+                url,
+                caption
               }
             }
           }

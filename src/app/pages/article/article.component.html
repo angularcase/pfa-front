@@ -9,4 +9,10 @@
             {{ category.name }}
         }
     </div>
+    <div>
+        <h3>Pliki</h3>
+        @for (download of article.downloads; track download.documentId) {
+            <a [href]="`${apiUrl}${download.url}`" target="_blank">{{ download.caption }}</a>
+        }
+    </div>
 }
