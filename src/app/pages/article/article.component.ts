@@ -29,7 +29,11 @@ export class ArticleComponent implements OnInit {
             articles(filters: $filters, locale: $locale) {
               body
               title
-              slug
+              slug,
+              categories {
+                documentId,
+                name
+              }
             }
           }
         `,

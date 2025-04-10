@@ -3,4 +3,10 @@
         <h2>{{ article.title }}</h2>
         <p>{{ article.body }}</p>
     </div>
+    <div>
+        <h3>Kategorie</h3>
+        @for (category of article.categories; track category.documentId) {
+            {{ category.name }}
+        }
+    </div>
 }
