@@ -14,7 +14,7 @@ export const routes: Routes = [
         component: ContactComponent
     },
     {
-        path: 'article/:id',
+        path: 'article/:slug',
         component: ArticleComponent
     },
     {
