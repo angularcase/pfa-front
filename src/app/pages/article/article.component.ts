@@ -1,9 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { Apollo, gql } from 'apollo-angular';
 import { environment } from '../../../environments/environment';
 import { ArticleDto } from '../../core/services/articles.service';
-import { StrapiResponse } from '../../core/services/articles.service';
 import { ArticlesService } from '../../core/services/articles.service';
 
 @Component({

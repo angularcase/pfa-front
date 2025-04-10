@@ -4,9 +4,6 @@ import { provideRouter, withComponentInputBinding, withDisabledInitialNavigation
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
-import { provideApollo } from 'apollo-angular';
-import { HttpLink } from 'apollo-angular/http';
-import { InMemoryCache } from '@apollo/client/core';
 import { environment } from '../environments/environment';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
@@ -29,7 +26,7 @@ export function createTranslateRouteLoader(
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }), 
-    // provideClientHydration(withEventReplay()),
+    provideClientHydration(withEventReplay()),
     provideTranslateService({
       defaultLanguage: 'pl',
       loader: {
@@ -39,16 +36,6 @@ export const appConfig: ApplicationConfig = {
       },
      }),
     provideHttpClient(withFetch()),
-    provideApollo(() => {
-      const httpLink = inject(HttpLink);
-
-      return {
-        link: httpLink.create({
-          uri: environment.apolloUrl,
-        }),
-        cache: new InMemoryCache(),
-      };
-    }),
     provideRouter(
       routes,
       withComponentInputBinding(),
