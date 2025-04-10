@@ -1,14 +1,18 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Apollo, gql } from 'apollo-angular';
+import { ArticleListItemComponent } from "./article-list-item/article-list-item.component";
 
 @Component({
   selector: 'app-articles',
-  imports: [],
+  standalone: true,
+  imports: [ArticleListItemComponent],
   templateUrl: './articles.component.html',
   styleUrl: './articles.component.scss'
 })
 export class ArticlesComponent {
+
+  articles: any[] = [];
   constructor(
     private apollo: Apollo,
     private translate: TranslateService) {
@@ -35,7 +39,7 @@ export class ArticlesComponent {
       })
       .valueChanges
       .subscribe((result: any) => {
-        console.log(result.data.articles);
+        this.articles = result.data.articles;
       });
   }
 }
