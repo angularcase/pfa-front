@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { map } from 'rxjs/operators';
 import { QsService } from './qs.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,16 +17,19 @@ export class ArticlesService {
     private qs: QsService
   ) { }
 
-  getArticles(locale: string) {
+  getArticles(locale: string): Observable<ArticleDto[] | null> {
     const query = this.qs.getQuery({
       populate: '*',
       locale: locale
     });
 
-    return this.http.get<StrapiResponse<ArticleDto[]>>(`${this.apiUrl}/articles?${query}`);
+    return this.http.get<StrapiResponse<ArticleDto[]>>(`${this.apiUrl}/articles?${query}`)
+    .pipe(map((response: StrapiResponse<ArticleDto[]>) => {
+      return response.data ?? null;
+    }));
   }
 
-  getArticleBySlug(slug: string, locale: string) {
+  getArticleBySlug(slug: string, locale: string): Observable<ArticleDto> {
     const query = this.qs.getQuery({
       populate: '*',
       locale: locale,

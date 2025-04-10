@@ -4,7 +4,6 @@ import { provideRouter, withComponentInputBinding, withDisabledInitialNavigation
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
-import { environment } from '../environments/environment';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 import { provideTranslateService, TranslateLoader, TranslateService } from '@ngx-translate/core';

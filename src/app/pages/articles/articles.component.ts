@@ -23,9 +23,8 @@ export class ArticlesComponent {
   ngOnInit(): void {
     const lang = this.translate.currentLang;
 
-    this.articlesService.getArticles(lang).subscribe((response: StrapiResponse<ArticleDto[]>) => {
-      console.log(response);
-      this.articles = response.data ?? [];
+    this.articlesService.getArticles(lang).subscribe((response: ArticleDto[] | null) => {
+      this.articles = response ?? [];
     });
   }
 }
