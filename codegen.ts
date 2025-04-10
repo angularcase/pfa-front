@@ -5,7 +5,10 @@ const config: CodegenConfig = {
   documents: './src/app/graphql/queries/*.graphql',
   generates: {
     './src/app/graphql/generated.ts': {
-      plugins: ['typescript', 'typescript-operations', 'typescript-apollo-angular']
+      plugins: ['typescript', 'typescript-operations', 'typescript-apollo-angular'],
+      config: {
+        strictScalars: true,
+      }
     }
   }
 }

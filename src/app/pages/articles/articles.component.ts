@@ -14,7 +14,7 @@ import { map } from 'rxjs';
 })
 export class ArticlesComponent {
 
-  articles?: GetArticlesQuery['articles'];
+  articles: Partial<Article>[] = [];
 
   constructor(
     private getArticlesGQL: GetArticlesGQL,
@@ -25,8 +25,10 @@ export class ArticlesComponent {
   ngOnInit(): void {
     const lang = this.translate.currentLang;
 
-    this.getArticlesGQL.fetch({ locale: lang }).pipe(map(result => result.data.articles)).subscribe((articles) => {
-      this.articles = articles;
+    this.getArticlesGQL.fetch({ locale: lang }).pipe(
+      map(result => result.data.articles)
+    ).subscribe((articles) => {
+      this.articles = articles.filter((article) => article !== null);
       console.log(this.articles);
     });
   }
