@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { LocalizeRouterModule } from '@gilsdav/ngx-translate-router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { Apollo, gql } from 'apollo-angular';
 
 @Component({
   selector: 'app-root',
