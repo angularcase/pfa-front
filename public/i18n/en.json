@@ -2,7 +2,8 @@
     "ROUTES": {
         "home": "home",
         "contact": "contact",
-        "article": "article"
+        "article": "article",
+        "articles": "articles"
     },
     "app": {
         "shared": {

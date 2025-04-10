@@ -53,6 +53,7 @@ export const appConfig: ApplicationConfig = {
       withComponentInputBinding(),
       withDisabledInitialNavigation(),
       withLocalizeRouter(routes, {
+        alwaysSetPrefix: true,
         parser: {
           provide: LocalizeParser,
           useFactory: (createTranslateRouteLoader),

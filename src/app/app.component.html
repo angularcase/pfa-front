@@ -1,3 +1,3 @@
 <h1>{{ 'app.shared.title' | translate }}</h1>
-<p>{{ date | date:'dd/MM/yyyy HH:mm:ss' }}</p>
+<a [routerLink]="['/articles' | localize]">Artykuly</a>
 <router-outlet></router-outlet>
