@@ -17,7 +17,7 @@ export class ArticlesService {
     private qs: QsService
   ) { }
 
-  getArticles(locale: string): Observable<ArticleDto[] | null> {
+  getArticles(locale: string): Observable<ArticleDto[]> {
     const query = this.qs.getQuery({
       populate: '*',
       locale: locale
@@ -25,7 +25,7 @@ export class ArticlesService {
 
     return this.http.get<StrapiResponse<ArticleDto[]>>(`${this.apiUrl}/articles?${query}`)
     .pipe(map((response: StrapiResponse<ArticleDto[]>) => {
-      return response.data ?? null;
+      return response.data;
     }));
   }
 
@@ -51,7 +51,7 @@ export class ArticlesService {
 }
 
 export interface StrapiResponse<T> {
-  data: T | null;
+  data: T;
   meta: {
     pagination: {
       page: number;
