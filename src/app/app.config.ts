@@ -29,7 +29,7 @@ export function createTranslateRouteLoader(
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }), 
-    provideClientHydration(withEventReplay()),
+    // provideClientHydration(withEventReplay()),
     provideTranslateService({
       loader: {
         provide: TranslateLoader,

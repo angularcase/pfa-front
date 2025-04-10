@@ -6,6 +6,9 @@
         "articles": "articles"
     },
     "app": {
+        "links": {
+            "articles": "Articles"
+        },
         "shared": {
             "title": "PFA - Products for animals"
         },

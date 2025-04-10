@@ -30,7 +30,8 @@ export class ArticlesComponent {
         `,
         variables: {
           locale: lang
-        }
+        },
+        fetchPolicy: 'no-cache'
       })
       .valueChanges
       .subscribe((result: any) => {
