@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ArticleListItemComponent } from "./article-list-item/article-list-item.component";
 import { Article, GetArticlesGQL, GetArticlesQuery } from '../../graphql/generated';
-import { ApolloQueryResult } from '@apollo/client/core';
+import { ApolloQueryResult, Observable } from '@apollo/client/core';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-articles',
@@ -13,10 +14,9 @@ import { ApolloQueryResult } from '@apollo/client/core';
 })
 export class ArticlesComponent {
 
-  articles: Article[] = [];
+  articles?: GetArticlesQuery['articles'];
 
   constructor(
-    // private apollo: Apollo,
     private getArticlesGQL: GetArticlesGQL,
     private translate: TranslateService,
   ) {
@@ -25,32 +25,9 @@ export class ArticlesComponent {
   ngOnInit(): void {
     const lang = this.translate.currentLang;
 
-    this.getArticlesGQL.fetch({ locale: lang }).subscribe((result: ApolloQueryResult<GetArticlesQuery>) => {
-      this.articles = result.data.articles.filter((article) => article !== null) as Article[];
-      // this.articles.forEach((article) => {
-      //   console.log(article?.title);
-      // });
+    this.getArticlesGQL.fetch({ locale: lang }).pipe(map(result => result.data.articles)).subscribe((articles) => {
+      this.articles = articles;
+      console.log(this.articles);
     });
-
-    // this.apollo
-    //   .watchQuery({
-    //     query: gql`
-    //       query Articles($locale: I18NLocaleCode) {
-    //         articles(locale: $locale) {
-    //           body
-    //           slug
-    //           title
-    //         }
-    //       }
-    //     `,
-    //     variables: {
-    //       locale: lang
-    //     },
-    //     fetchPolicy: 'no-cache'
-    //   })
-    //   .valueChanges
-    //   .subscribe((result: any) => {
-    //     this.articles = result.data.articles;
-    //   });
   }
 }

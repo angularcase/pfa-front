@@ -1,3 +1,5 @@
-@for (article of articles; track article.slug) {
-    <app-article-list-item [article]="article"></app-article-list-item>
+@if (articles) {
+    @for (article of articles; track article.slug) {
+        <app-article-list-item [article]="article"></app-article-list-item>
+    }
 }
