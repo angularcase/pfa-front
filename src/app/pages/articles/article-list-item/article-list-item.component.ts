@@ -2,8 +2,6 @@ import { Component, Input } from '@angular/core';
 import { LocalizeRouterModule } from '@gilsdav/ngx-translate-router';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
-import { ArticleFromQuery } from '../../../graphql/non-nullables';
-import { ArticleDownloadsArgs } from '../../../graphql/generated';
 import { ArticleDto } from '../../../core/services/articles.service';
 
 @Component({

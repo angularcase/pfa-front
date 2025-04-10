@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ArticleListItemComponent } from "./article-list-item/article-list-item.component";
-import { Article, GetArticlesGQL } from '../../graphql/generated';
-import { map } from 'rxjs';
-import { ArticleFromQuery } from '../../graphql/non-nullables';
 import { ArticleDto, ArticlesService, StrapiResponse } from '../../core/services/articles.service';
 
 @Component({
