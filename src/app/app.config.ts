@@ -31,6 +31,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }), 
     // provideClientHydration(withEventReplay()),
     provideTranslateService({
+      defaultLanguage: 'pl',
       loader: {
         provide: TranslateLoader,
         useFactory: httpLoaderFactory,
