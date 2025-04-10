@@ -2,7 +2,9 @@ import { Component, Input } from '@angular/core';
 import { LocalizeRouterModule } from '@gilsdav/ngx-translate-router';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
-import { Article } from '../../../graphql/generated';
+import { ArticleFromQuery } from '../../../graphql/non-nullables';
+import { ArticleDownloadsArgs } from '../../../graphql/generated';
+import { ArticleDto } from '../../../core/services/articles.service';
 
 @Component({
   selector: 'app-article-list-item',
@@ -12,5 +14,5 @@ import { Article } from '../../../graphql/generated';
   styleUrl: './article-list-item.component.scss'
 })
 export class ArticleListItemComponent {
-    @Input() article: Partial<Article> = {};
+    @Input() article!: ArticleDto;
 }

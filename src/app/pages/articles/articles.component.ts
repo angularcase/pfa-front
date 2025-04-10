@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ArticleListItemComponent } from "./article-list-item/article-list-item.component";
-import { Article, GetArticlesGQL, GetArticlesQuery } from '../../graphql/generated';
-import { ApolloQueryResult, Observable } from '@apollo/client/core';
+import { Article, GetArticlesGQL } from '../../graphql/generated';
 import { map } from 'rxjs';
+import { ArticleFromQuery } from '../../graphql/non-nullables';
+import { ArticleDto, ArticlesService, StrapiResponse } from '../../core/services/articles.service';
 
 @Component({
   selector: 'app-articles',
@@ -14,22 +15,20 @@ import { map } from 'rxjs';
 })
 export class ArticlesComponent {
 
-  articles: Partial<Article>[] = [];
+  articles: ArticleDto[] = [];
 
   constructor(
-    private getArticlesGQL: GetArticlesGQL,
     private translate: TranslateService,
+    private articlesService: ArticlesService
   ) {
   }
 
   ngOnInit(): void {
     const lang = this.translate.currentLang;
 
-    this.getArticlesGQL.fetch({ locale: lang }).pipe(
-      map(result => result.data.articles)
-    ).subscribe((articles) => {
-      this.articles = articles.filter((article) => article !== null);
-      console.log(this.articles);
+    this.articlesService.getArticles(lang).subscribe((response: StrapiResponse<ArticleDto[]>) => {
+      console.log(response);
+      this.articles = response.data ?? [];
     });
   }
 }

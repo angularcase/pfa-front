@@ -1255,7 +1255,7 @@ export type GetArticlesQueryVariables = Exact<{
 }>;
 
 
-export type GetArticlesQuery = { __typename?: 'Query', articles: Array<{ __typename?: 'Article', body: string, slug: string, title: string } | null> };
+export type GetArticlesQuery = { __typename?: 'Query', articles: Array<{ __typename?: 'Article', body: string, slug: string, title: string, categories: Array<{ __typename?: 'Category', name?: string | null } | null> } | null> };
 
 export const GetArticlesDocument = gql`
     query GetArticles($locale: I18NLocaleCode) {
@@ -1263,6 +1263,9 @@ export const GetArticlesDocument = gql`
     body
     slug
     title
+    categories {
+      name
+    }
   }
 }
     `;

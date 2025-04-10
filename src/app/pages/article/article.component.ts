@@ -2,6 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Apollo, gql } from 'apollo-angular';
 import { environment } from '../../../environments/environment';
+import { ArticleDto } from '../../core/services/articles.service';
+import { StrapiResponse } from '../../core/services/articles.service';
+import { ArticlesService } from '../../core/services/articles.service';
 
 @Component({
   selector: 'app-article',
@@ -13,54 +16,22 @@ export class ArticleComponent implements OnInit {
 
   @Input() slug!: string;
 
-  article: any;
+  article!: ArticleDto;
 
   get apiUrl() {
     return environment.strapiUrl;
   }
 
   constructor(
-    private apollo: Apollo,
+    private articlesService: ArticlesService,
     private translate: TranslateService
   ) { }
 
   ngOnInit() {
     const lang = this.translate.currentLang;
 
-    this.apollo
-      .watchQuery({
-        query: gql`
-          query Articles($filters: ArticleFiltersInput, $locale: I18NLocaleCode) {
-            articles(filters: $filters, locale: $locale) {
-              body
-              title
-              slug,
-              categories {
-                documentId,
-                name
-              },
-              downloads {
-                documentId,
-                url,
-                caption
-              }
-            }
-          }
-        `,
-        variables: {
-          filters: {
-            slug: {
-              eq: this.slug
-            }
-          },
-          locale: lang
-        },
-        fetchPolicy: 'no-cache'
-      })
-      .valueChanges
-      .subscribe((result: any) => {
-        console.log(result.data.articles);
-        this.article = result.data.articles[0];
-      });
+    this.articlesService.getArticleBySlug(this.slug, lang).subscribe((article: ArticleDto) => {
+      this.article = article;
+    });
   }
 }

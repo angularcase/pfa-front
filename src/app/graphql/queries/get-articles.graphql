@@ -2,6 +2,9 @@ query GetArticles($locale: I18NLocaleCode) {
   articles(locale: $locale) {
     body
     slug
-    title
+    title,
+    categories {
+      name
+    }
   }
 }
