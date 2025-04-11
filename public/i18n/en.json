@@ -3,7 +3,8 @@
         "home": "home",
         "contact": "contact",
         "article": "article",
-        "articles": "articles"
+        "articles": "articles",
+        "404": "404"
     },
     "app": {
         "links": {

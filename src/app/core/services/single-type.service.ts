@@ -16,10 +16,7 @@ export class SingleTypeService {
   getSingleType<K extends SingleTypeName>(typeName: K): Observable<SingleTypeMap[K]> {
     return this.http.get<StrapiResponse<SingleTypeMap[K]>>(`${this.apiUrl}/${typeName}`)
     .pipe(map((response: StrapiResponse<SingleTypeMap[K]>) => {
-      if (response.data) {
-        return response.data;
-      }
-      throw new Error(`No single type "${typeName}" found`);
+      return response.data;
     }));
   }
 }

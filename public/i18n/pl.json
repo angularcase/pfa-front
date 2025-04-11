@@ -3,7 +3,8 @@
         "home": "strona-glowna",
         "contact": "kontakt",
         "article": "artykul",
-        "articles": "artykuly"
+        "articles": "artykuly",
+        "404": "404"
     },
     "app": {
         "links": {
