@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { SingleTypeService, ContactDto } from '../../core/services/single-type.service';
 
 @Component({
@@ -13,11 +13,14 @@ export class ContactComponent implements OnInit {
   contact!: ContactDto;
 
   constructor(
-    private singleTypeService: SingleTypeService
+    private singleTypeService: SingleTypeService,
+    private translate: TranslateService
   ) {}
 
   ngOnInit() {
-    this.singleTypeService.getSingleType('contact').subscribe((contact: ContactDto) => {
+    const lang = this.translate.currentLang;
+
+    this.singleTypeService.getSingleType('contact', lang).subscribe((contact: ContactDto) => {
       this.contact = contact;
     });
   }
