@@ -22,12 +22,12 @@ export const routes: Routes = [
         path: 'articles',
         component: ArticlesComponent
     },
-    {
-        path: '404',
-        component: Error404Component
-    },
+    // {
+    //     path: '404',
+    //     component: Error404Component
+    // },
     {
         path: '**',
-        redirectTo: '/404'
+        component: Error404Component
     }
 ];

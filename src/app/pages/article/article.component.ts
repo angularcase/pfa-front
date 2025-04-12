@@ -39,7 +39,7 @@ export class ArticleComponent implements OnInit {
       error: (error: Error) => {
         const translatedRoute = this.localizeRouterService.translateRoute('/404');
         console.log(translatedRoute);
-        this.router.navigate([translatedRoute]);
+        // this.router.navigate([translatedRoute]);
       }
     });
   }
