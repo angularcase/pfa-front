@@ -16,8 +16,8 @@ declare var HSBsValidation: any;
 })
 export class NavbarComponent implements AfterViewInit {
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object, private router: Router,
-private translate: TranslateService, private localize: LocalizeRouterService) {}
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object) {}
 
   initializeMegaMenu() {
     const megaMenu = new HSMegaMenu('.js-mega-menu', {
@@ -25,22 +25,6 @@ private translate: TranslateService, private localize: LocalizeRouterService) {}
         position: 'left'
       }
     })
-    
-
-
-    // INITIALIZATION OF SHOW ANIMATIONS
-    // =======================================================
-    // new HSShowAnimation('.js-animation-link')
-
-
-    // INITIALIZATION OF BOOTSTRAP VALIDATION
-    // =======================================================
-    // HSBsValidation.init('.js-validate', {
-    //   onSubmit: (data: any) => {
-    //     data.event.preventDefault()
-    //     alert('Submited')
-    //   }
-    // })
   }
 
   ngAfterViewInit(): void {

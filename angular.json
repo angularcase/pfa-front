@@ -41,7 +41,8 @@
               "src/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js",
               "src/assets/vendor/hs-mega-menu/dist/hs-mega-menu.min.js",
               "src/assets/vendor/hs-show-animation/dist/hs-show-animation.min.js",
-              "src/assets/js/theme.min.js"
+              "src/assets/js/theme.min.js",
+              "src/assets/vendor/hs-sticky-block/dist/hs-sticky-block.min.js"
             ],
             "server": "src/main.server.ts",
             "prerender": false,

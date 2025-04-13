@@ -1,7 +1,23 @@
-<div>
-    <h2>{{ article.title }}</h2>
-    <p>{{ article.body }}</p>
-</div>
-<div>
-    <a [routerLink]="['/article', article.slug] | localize">{{ article.title }}</a>
-</div>
+<li>
+    <!-- Media -->
+    <div class="d-sm-flex">
+      <div class="flex-shrink-0 mb-3 mb-sm-0">
+        <span class="svg-icon svg-icon-sm text-primary">
+            <img src="./assets/vendor/duotone-icons/gen/gen005.svg">
+        </span>
+      </div>
+
+      <div class="flex-grow-1 ms-sm-3">
+        <div class="mb-5">
+          <span class="text-cap">MAŁE ZWIERZĘTA</span>
+          <h5>{{ article.title }}</h5>
+          <p>{{ article.body }}</p>
+        </div>
+
+        <a class="link" [routerLink]="['/article', article.slug] | localize">Read more <i class="bi-chevron-right small ms-1"></i></a>
+      </div>
+    </div>
+    <!-- End Media -->
+  </li>
+
+  <li class="border-top my-5"></li>
