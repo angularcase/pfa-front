@@ -11,7 +11,7 @@
         <div class="mb-5">
           <span class="text-cap">MAŁE ZWIERZĘTA</span>
           <h5>{{ article.title }}</h5>
-          <p>{{ article.body }}</p>
+          <p>{{ article.abstract }}</p>
         </div>
 
         <a class="link" [routerLink]="['/article', article.slug] | localize">Read more <i class="bi-chevron-right small ms-1"></i></a>

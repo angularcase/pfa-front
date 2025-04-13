@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ArticleListItemComponent } from "./article-list-item/article-list-item.component";
 import { ArticleDto, ArticlesService, StrapiResponse } from '../../core/services/articles.service';
 import { RouterModule } from '@angular/router';
@@ -10,7 +10,7 @@ declare var HSStickyBlock: any;
 @Component({
   selector: 'app-articles',
   standalone: true,
-  imports: [ArticleListItemComponent, RouterModule],
+  imports: [ArticleListItemComponent, RouterModule, TranslateModule],
   templateUrl: './articles.component.html',
   styleUrl: './articles.component.scss'
 })

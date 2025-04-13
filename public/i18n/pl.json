@@ -20,6 +20,9 @@
             },
             "contact": {
                 "title": "Kontakt"
+            },
+            "articles": {
+                "title": "Artykuły"
             }
         }
     }
