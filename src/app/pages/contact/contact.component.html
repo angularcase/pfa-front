@@ -1,3 +1,224 @@
-@if(contact) {
-    {{ contact.phone }}
-}
+<app-hero-contact-light></app-hero-contact-light>
+<!-- Contact Form -->
+<div class="container content-space-1">
+    <div class="row justify-content-md-between">
+      <div class="col-md-6 mb-7 mb-md-0">
+        <!-- Card -->
+        <div class="card card-lg">
+          <!-- Card Body -->
+          <div class="card-body">
+            <form>
+              <div class="row">
+                <div class="col-sm-6 mb-4 mb-sm-0">
+                  <!-- Form -->
+                  <div class="mb-4">
+                    <label class="form-label" for="contactsFormFirstName">First name</label>
+                    <input type="text" class="form-control" name="contactsFormNameFirstName" id="contactsFormFirstName" placeholder="Jacob" aria-label="Jacob">
+                  </div>
+                  <!-- End Form -->
+                </div>
+                <!-- End Col -->
+  
+                <div class="col-sm-6">
+                  <!-- Form -->
+                  <div class="mb-4">
+                    <label class="form-label" for="contactsFormLasttName">Last name</label>
+                    <input type="text" class="form-control" name="contactsFormNameLastName" id="contactsFormLasttName" placeholder="Williams" aria-label="Williams">
+                  </div>
+                  <!-- End Form -->
+                </div>
+                <!-- End Col -->
+              </div>
+              <!-- End Row -->
+  
+              <!-- Form -->
+              <div class="mb-4">
+                <label class="form-label" for="contactsFormJobTitle">Job title</label>
+                <input type="text" class="form-control" name="contactsFormNameJobTitle" id="contactsFormJobTitle" placeholder="E-commerce platform" aria-label="E-commerce platform">
+              </div>
+              <!-- End Form -->
+  
+              <div class="row">
+                <div class="col-sm-6 mb-4 mb-sm-0">
+                  <!-- Form -->
+                  <div class="mb-4">
+                    <label class="form-label" for="contactsFormCompany">Company</label>
+                    <input type="text" class="form-control" name="contactsFormNameCompany" id="contactsFormCompany" placeholder="Htmlstream" aria-label="Htmlstream">
+                  </div>
+                  <!-- End Form -->
+                </div>
+                <!-- End Col -->
+  
+                <div class="col-sm-6">
+                  <!-- Form -->
+                  <div class="mb-4">
+                    <label class="form-label" for="contactsFormCompanyWebsite">Company website</label>
+                    <input type="text" class="form-control" name="contactsFormNameCompanyWebsite" id="contactsFormCompanyWebsite" placeholder="htmlstream.com" aria-label="htmlstream.com">
+                  </div>
+                  <!-- End Form -->
+                </div>
+                <!-- End Col -->
+              </div>
+              <!-- End Row -->
+  
+              <!-- Form -->
+              <div class="mb-4">
+                <label class="form-label" for="contactsFormWorkEmail">Work email</label>
+                <input type="text" class="form-control" name="contactsFormNameWorkEmail" id="contactsFormWorkEmail" placeholder="email@site.com" aria-label="email@site.com">
+              </div>
+              <!-- End Form -->
+  
+              <!-- Form -->
+              <div class="mb-4">
+                <label class="form-label" for="contactsFormDetails">Details</label>
+                <textarea class="form-control" name="contactsFormNameDetails" id="contactsFormDetails" placeholder="Tell us about your payment sales" aria-label="Tell us about your payment sales" rows="4"></textarea>
+              </div>
+              <!-- End Form -->
+  
+              <div class="d-grid">
+                <button type="submit" class="btn btn-primary btn-lg">Send inquiry</button>
+              </div>
+            </form>
+          </div>
+          <!-- End Card Body -->
+        </div>
+        <!-- End Card -->
+      </div>
+      <!-- End Col -->
+  
+      <div class="col-md-6 col-lg-5">
+        <div class="mb-4">
+          <h6>Contact sales by phone or location</h6>
+        </div>
+  
+        <ul class="list-unstyled list-py-1">
+          <li>
+            <div class="d-flex align-items-center">
+              <div class="flex-shrink-0 text-center" style="width: 1.5rem;">
+                <img class="avatar avatar-xss avatar-circle" src="../node_modules/flag-icon-css/flags/1x1/gb.svg" alt="Image description"/>
+              </div>
+              <div class="flex-grow-1 ms-2">
+                <span>London, UK (HQ)</span>
+              </div>
+            </div>
+          </li>
+  
+          <li>
+            <div class="d-flex align-items-center">
+              <div class="flex-shrink-0 text-center" style="width: 1.5rem;">
+                <span class="svg-icon svg-icon-xs text-muted mt-0">
+                  <img src="./assets/vendor/duotone-icons/gen/gen018.svg">
+                </span>
+              </div>
+              <div class="flex-grow-1 ms-2">
+                <span>153 Williamson Plaza, Maggieberg, SE56 FF12</span>
+              </div>
+            </div>
+          </li>
+  
+          <li>
+            <div class="d-flex align-items-center">
+              <div class="flex-shrink-0 text-center" style="width: 1.5rem;">
+                <span class="svg-icon svg-icon-xs text-muted mt-0">
+                  <img src="./assets/vendor/duotone-icons/elc/elc002.svg">
+                </span>
+              </div>
+              <div class="flex-grow-1 ms-2">
+                <span>062 1099222</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+  
+        <hr class="my-5">
+  
+        <ul class="list-unstyled list-py-1">
+          <li>
+            <div class="d-flex align-items-center">
+              <div class="flex-shrink-0 text-center" style="width: 1.5rem;">
+                <img class="avatar avatar-xss avatar-circle" src="../node_modules/flag-icon-css/flags/1x1/us.svg" alt="Image description"/>
+              </div>
+              <div class="flex-grow-1 ms-2">
+                <span>San Francisco, US</span>
+              </div>
+            </div>
+          </li>
+  
+          <li>
+            <div class="d-flex align-items-center">
+              <div class="flex-shrink-0 text-center" style="width: 1.5rem;">
+                <span class="svg-icon svg-icon-xs text-muted mt-0">
+                  <img src="./assets/vendor/duotone-icons/gen/gen018.svg">
+                </span>
+              </div>
+              <div class="flex-grow-1 ms-2">
+                <span>517  Michigan Avenue, California, 94080</span>
+              </div>
+            </div>
+          </li>
+  
+          <li>
+            <div class="d-flex align-items-center">
+              <div class="flex-shrink-0 text-center" style="width: 1.5rem;">
+                <span class="svg-icon svg-icon-xs text-muted mt-0">
+                  <img src="./assets/vendor/duotone-icons/elc/elc002.svg">
+                </span>
+              </div>
+              <div class="flex-grow-1 ms-2">
+                <span>724-597-6746</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+  
+        <hr class="my-5">
+  
+        <ul class="list-unstyled list-py-1">
+          <li>
+            <div class="d-flex align-items-center">
+              <div class="flex-shrink-0 text-center" style="width: 1.5rem;">
+                <img class="avatar avatar-xss avatar-circle" src="./assets/vendor/flag-icon-css/flags/1x1/de.svg" alt="Image description"/>
+              </div>
+              <div class="flex-grow-1 ms-2">
+                <span>Berlin, Germany</span>
+              </div>
+            </div>
+          </li>
+  
+          <li>
+            <div class="d-flex align-items-center">
+              <div class="flex-shrink-0 text-center" style="width: 1.5rem;">
+                <span class="svg-icon svg-icon-xs text-muted mt-0">
+                  <img src="./assets/vendor/duotone-icons/gen/gen018.svg">
+                </span>
+              </div>
+              <div class="flex-grow-1 ms-2">
+                <span>Feldstrasse 62, Drackenstedt, Sachsen-Anhalt</span>
+              </div>
+            </div>
+          </li>
+  
+          <li>
+            <div class="d-flex align-items-center">
+              <div class="flex-shrink-0 text-center" style="width: 1.5rem;">
+                <span class="svg-icon svg-icon-xs text-muted mt-0">
+                  <img src="./assets/vendor/duotone-icons/elc/elc002.svg">
+                </span>
+              </div>
+              <div class="flex-grow-1 ms-2">
+                <span>039293 40 53</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+  
+        <div class="mt-5">
+          <h6>Contact sales by email</h6>
+          <p>If you wish to write us an email instead please use <a href="mailto:example&#64;site.com">example&#64;site.com</a></p>
+        </div>
+      </div>
+      <!-- End Col -->
+    </div>
+    <!-- End Row -->
+  </div>
+  <!-- End Contact Form -->

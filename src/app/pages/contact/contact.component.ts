@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { SingleTypeService, ContactDto } from '../../core/services/single-type.service';
+import { HeroContactLightComponent } from '../../shared/hero-contact-light/hero-contact-light.component';
 
 @Component({
   selector: 'app-contact',
-  imports: [TranslateModule],
+  imports: [TranslateModule, HeroContactLightComponent],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
