@@ -3,7 +3,7 @@
   <div class="container">
     <nav class="js-mega-menu navbar-nav-wrap">
       <!-- Default Logo -->
-      <a class="navbar-brand" href="#" aria-label="Space">
+      <a class="navbar-brand" [routerLink]="['/' | localize]" aria-label="Space">
         <!-- PFA -->
         <img class="navbar-brand-logo" src="./assets/svg/logos/logo.svg" alt="Image Description">
       </a>
@@ -23,8 +23,15 @@
       <!-- Collapse -->
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
+          <!-- Artykuły -->
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/articles' | localize]">{{ 'app.links.articles' | translate }}</a>
+            <!-- <a class="nav-link" href="#">Artykuły</a> -->
+          </li>
+          <!-- End Artykuły -->
+          
           <!-- Landings -->
-          <li class="hs-has-mega-menu nav-item"
+          <li class="hs-has-mega-menu nav-item d-none"
               data-hs-mega-menu-item-options='{
                 "desktop": {
                   "maxWidth": "30rem"
