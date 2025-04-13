@@ -6,9 +6,11 @@ import { ArticlesService } from '../../core/services/articles.service';
 import { LocalizeRouterService } from '@gilsdav/ngx-translate-router';
 import { SearchComponent } from "../../shared/search/search.component";
 import { CtoContactUsAirplaneComponent } from "../../shared/cto-contact-us-airplane/cto-contact-us-airplane.component";
+import { BreadCrumbsComponent } from '../../shared/bread-crumbs/bread-crumbs.component';
+
 @Component({
   selector: 'app-article',
-  imports: [TranslateModule, SearchComponent, CtoContactUsAirplaneComponent],
+  imports: [TranslateModule, SearchComponent, CtoContactUsAirplaneComponent, BreadCrumbsComponent],
   templateUrl: './article.component.html',
   styleUrl: './article.component.scss'
 })

@@ -4,13 +4,16 @@ import { ArticleListItemComponent } from "./article-list-item/article-list-item.
 import { ArticleDto, ArticlesService, StrapiResponse } from '../../core/services/articles.service';
 import { RouterModule } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
+import { CtoContactUsAirplaneComponent } from '../../shared/cto-contact-us-airplane/cto-contact-us-airplane.component';
+import { SearchComponent } from '../../shared/search/search.component';
+import { BreadCrumbsComponent } from '../../shared/bread-crumbs/bread-crumbs.component';
 
 declare var HSStickyBlock: any;
 
 @Component({
   selector: 'app-articles',
   standalone: true,
-  imports: [ArticleListItemComponent, RouterModule, TranslateModule],
+  imports: [ArticleListItemComponent, RouterModule, TranslateModule, CtoContactUsAirplaneComponent, SearchComponent, BreadCrumbsComponent],
   templateUrl: './articles.component.html',
   styleUrl: './articles.component.scss'
 })

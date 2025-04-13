@@ -1,113 +1,120 @@
-
+<app-search></app-search>
+<app-bread-crumbs></app-bread-crumbs>
 
 <!-- List -->
 <div class="container content-space-1">
-    <div class="row">
-      <div id="stickyBlockStartPointEg1" class="col-md-4 mb-3 mb-md-0">
-        <!-- Navbar -->
-        <div class="navbar-expand-md">
-          <!-- Navbar Toggle -->
-          <div class="d-grid">
-            <button type="button" class="navbar-toggler btn btn-white mb-3" data-bs-toggle="collapse" data-bs-target="#navbarVerticalNavMenuEg1" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbarVerticalNavMenuEg1">
-              <span class="d-flex justify-content-between align-items-center">
-                <span class="h6 mb-0">Nav menu</span>
-  
-                <span class="navbar-toggler-default">
-                  <i class="bi-list"></i>
+    <div class="w-lg-75 mx-lg-auto">
+        <div class="row">
+        <div id="stickyBlockStartPointEg1" class="col-md-4 mb-3 mb-md-0">
+            <!-- Navbar -->
+            <div class="navbar-expand-md">
+            <!-- Navbar Toggle -->
+            <div class="d-grid">
+                <button type="button" class="navbar-toggler btn btn-white mb-3" data-bs-toggle="collapse" data-bs-target="#navbarVerticalNavMenuEg1" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbarVerticalNavMenuEg1">
+                <span class="d-flex justify-content-between align-items-center">
+                    <span class="h6 mb-0">Nav menu</span>
+    
+                    <span class="navbar-toggler-default">
+                    <i class="bi-list"></i>
+                    </span>
+    
+                    <span class="navbar-toggler-toggled">
+                    <i class="bi-x"></i>
+                    </span>
                 </span>
-  
-                <span class="navbar-toggler-toggled">
-                  <i class="bi-x"></i>
-                </span>
-              </span>
-            </button>
-          </div>
-          <!-- End Navbar Toggle -->
-  
-          <!-- Navbar Collapse -->
-          <div id="navbarVerticalNavMenuEg1" class="collapse navbar-collapse">
-            <!-- Sticky Block -->
-            <div class="js-sticky-block"
-                data-hs-sticky-block-options='{
-                 "parentSelector": "#stickyBlockStartPointEg1",
-                 "targetSelector": "#header",
-                 "breakpoint": "md",
-                 "startPoint": "#stickyBlockStartPointEg1",
-                 "endPoint": "#stickyBlockEndPointEg1",
-                 "stickyOffsetTop": 20
-               }'>
-              <!-- List -->
-              <ul class="nav nav-link-gray nav-tabs nav-vertical">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Top Solutions (5)</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active" href="#">Getting Started (7)</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Gulp (1)</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Customization (1)</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">License (4)</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Payments (12)</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Purchasing (35)</a>
-                </li>
-              </ul>
-              <!-- End List -->
+                </button>
             </div>
-            <!-- End Sticky Block -->
-          </div>
-          <!-- End Navbar Collapse -->
+            <!-- End Navbar Toggle -->
+    
+            <!-- Navbar Collapse -->
+            <div id="navbarVerticalNavMenuEg1" class="collapse navbar-collapse">
+                <!-- Sticky Block -->
+                <div class="js-sticky-block"
+                    data-hs-sticky-block-options='{
+                    "parentSelector": "#stickyBlockStartPointEg1",
+                    "targetSelector": "#header",
+                    "breakpoint": "md",
+                    "startPoint": "#stickyBlockStartPointEg1",
+                    "endPoint": "#stickyBlockEndPointEg1",
+                    "stickyOffsetTop": 20
+                }'>
+                <!-- List -->
+                <ul class="nav nav-link-gray nav-tabs nav-vertical">
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">Top Solutions (5)</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link active" href="#">Getting Started (7)</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">Gulp (1)</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">Customization (1)</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">License (4)</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">Payments (12)</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">Purchasing (35)</a>
+                    </li>
+                </ul>
+                <!-- End List -->
+                </div>
+                <!-- End Sticky Block -->
+            </div>
+            <!-- End Navbar Collapse -->
+            </div>
+            <!-- End Navbar -->
         </div>
-        <!-- End Navbar -->
-      </div>
-      <!-- End Col -->
-  
-      <div class="col-md-8">
-        <!-- List -->
-        <ul class="list-unstyled list-py-2">
+        <!-- End Col -->
+    
+        <div class="col-md-8">
+            <!-- List -->
+            <ul class="list-unstyled list-py-2">
 
-            @for (article of articles; track article.slug) {
-                <app-article-list-item [article]="article"></app-article-list-item>
-            }
+                @for (article of articles; track article.slug) {
+                    <app-article-list-item [article]="article"></app-article-list-item>
+                }
 
-        </ul>
-        <!-- End List -->
-  
-        <!-- End Sticky End Point -->
-        <div id="stickyBlockEndPointEg1"></div>
-  
-        <!-- Pagination -->
-        <nav class="d-sm-flex justify-content-sm-between align-items-sm-center text-center" aria-label="Page navigation example">
-          <ul class="pagination justify-content-center justify-content-sm-end mb-sm-0">
-            <li class="page-item disabled">
-              <a class="page-link" href="#" tabindex="-1">
-                <span aria-hidden="true">«</span>
-              </a>
-            </li>
-            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#">
-                <span aria-hidden="true">»</span>
-              </a>
-            </li>
-          </ul>
-  
-          <small class="text-muted">Showing 3 of 3</small>
-        </nav>
-        <!-- End Pagination -->
-      </div>
-      <!-- End Col -->
+            </ul>
+            <!-- End List -->
+    
+            <!-- End Sticky End Point -->
+            <div id="stickyBlockEndPointEg1"></div>
+    
+            <!-- Pagination -->
+            <nav class="d-sm-flex justify-content-sm-between align-items-sm-center text-center" aria-label="Page navigation example">
+            <ul class="pagination justify-content-center justify-content-sm-end mb-sm-0">
+                <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">
+                    <span aria-hidden="true">«</span>
+                </a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                <a class="page-link" href="#">
+                    <span aria-hidden="true">»</span>
+                </a>
+                </li>
+            </ul>
+    
+            <small class="text-muted">Showing 3 of 3</small>
+            </nav>
+            <!-- End Pagination -->
+        </div>
+        <!-- End Col -->
+        </div>
     </div>
     <!-- End Row -->
   </div>
   <!-- End List -->
+
+
+  <app-cto-contact-us-airplane></app-cto-contact-us-airplane>
+  
