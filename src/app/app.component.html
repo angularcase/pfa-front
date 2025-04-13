@@ -1,3 +1,5 @@
+<app-navbar></app-navbar>
+
 <h1>
     <a [routerLink]="['/' | localize]">{{ 'app.shared.title' | translate }}</a>
 </h1>
@@ -9,3 +11,4 @@
 <a [routerLink]="['/contact' | localize]">{{ 'app.links.contact' | translate }}</a>
 <hr>
 <router-outlet></router-outlet>
+<app-footer></app-footer>
