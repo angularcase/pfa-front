@@ -88,7 +88,7 @@
   
       <div class="col-md-6 col-lg-5">
         <div class="mb-4">
-          <h6>Contact sales by phone or location</h6>
+          <h6>Skontaktuj się z nami</h6>
         </div>
   
         <ul class="list-unstyled list-py-1">
@@ -124,7 +124,11 @@
                 </span>
               </div>
               <div class="flex-grow-1 ms-2">
-                <span>062 1099222</span>
+                <span>
+                    @if (contact) {
+                        {{ contact.phone }}
+                    }
+                </span>
               </div>
             </div>
           </li>

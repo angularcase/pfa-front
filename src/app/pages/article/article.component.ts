@@ -4,11 +4,11 @@ import { environment } from '../../../environments/environment';
 import { ArticleDto } from '../../core/services/articles.service';
 import { ArticlesService } from '../../core/services/articles.service';
 import { LocalizeRouterService } from '@gilsdav/ngx-translate-router';
-import { Router } from '@angular/router';
-import { HeroLightComponent } from '../../shared/hero-light/hero-light.component';
+import { SearchComponent } from "../../shared/search/search.component";
+import { CtoContactUsAirplaneComponent } from "../../shared/cto-contact-us-airplane/cto-contact-us-airplane.component";
 @Component({
   selector: 'app-article',
-  imports: [TranslateModule, HeroLightComponent],
+  imports: [TranslateModule, SearchComponent, CtoContactUsAirplaneComponent],
   templateUrl: './article.component.html',
   styleUrl: './article.component.scss'
 })
