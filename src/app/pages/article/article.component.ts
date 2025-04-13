@@ -5,10 +5,10 @@ import { ArticleDto } from '../../core/services/articles.service';
 import { ArticlesService } from '../../core/services/articles.service';
 import { LocalizeRouterService } from '@gilsdav/ngx-translate-router';
 import { Router } from '@angular/router';
-
+import { HeroLightComponent } from '../../shared/hero-light/hero-light.component';
 @Component({
   selector: 'app-article',
-  imports: [TranslateModule],
+  imports: [TranslateModule, HeroLightComponent],
   templateUrl: './article.component.html',
   styleUrl: './article.component.scss'
 })
@@ -25,8 +25,7 @@ export class ArticleComponent implements OnInit {
   constructor(
     private articlesService: ArticlesService,
     private translate: TranslateService,
-    private localizeRouterService: LocalizeRouterService,
-    private router: Router
+    private localizeRouterService: LocalizeRouterService
   ) { }
 
   ngOnInit() {
