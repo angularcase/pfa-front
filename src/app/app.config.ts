@@ -14,12 +14,17 @@ import { Location } from '@angular/common';
 const httpLoaderFactory: (http: HttpClient) => TranslateHttpLoader = (http: HttpClient) =>
   new TranslateHttpLoader(http, './i18n/', '.json');
 
+export enum Language {
+  PL = 'pl',
+  EN = 'en'
+}
+
 export function createTranslateRouteLoader(
   translate: TranslateService,
   location: Location,
   localizeSettings: LocalizeRouterSettings
 ) {
-  return new ManualParserLoader(translate, location, localizeSettings, ['pl', 'en']);
+  return new ManualParserLoader(translate, location, localizeSettings, [Language.PL, Language.EN]);
 }
 
 export const appConfig: ApplicationConfig = {
@@ -27,7 +32,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }), 
     provideClientHydration(withEventReplay()),
     provideTranslateService({
-      defaultLanguage: 'pl',
+      defaultLanguage: Language.PL,
       loader: {
         provide: TranslateLoader,
         useFactory: httpLoaderFactory,

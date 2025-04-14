@@ -16,25 +16,7 @@
           </span>
   
           <!-- Button Group -->
-          <div class="btn-group">
-            <button type="button" class="btn btn-outline-primary btn-sm dropdown-toggle" id="selectLanguage" data-bs-toggle="dropdown" aria-expanded="false">
-              <span class="d-flex align-items-center">
-                <img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/us.svg" alt="Image description" width="16"/>
-                <span>English (US)</span>
-              </span>
-            </button>
-  
-            <div class="dropdown-menu">
-              <a class="dropdown-item d-flex align-items-center" [routerLink]="['/en']">
-                <img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/us.svg" alt="Image description" width="16"/>
-                <span>English (US)</span>
-              </a>
-              <a class="dropdown-item d-flex align-items-center" [routerLink]="['/pl']">
-                <img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/pl.svg" alt="Image description" width="16"/>
-                <span>Polski (PL)</span>
-              </a>
-            </div>
-          </div>
+            <app-language-picker></app-language-picker>
           <!-- End Button Group -->
         </div>
         <!-- End Col -->

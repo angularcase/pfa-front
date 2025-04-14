@@ -12,7 +12,10 @@
             "contact": "Kontakt"
         },
         "shared": {
-            "title": "PFA - Produkty dla zwierząt"
+            "languagePicker": {
+                "pl": "Polski (PL)",
+                "en": "English (EN)"
+            }
         },
         "pages": {
             "home": {
