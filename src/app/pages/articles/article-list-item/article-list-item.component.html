@@ -9,7 +9,7 @@
 
       <div class="flex-grow-1 ms-sm-3">
         <div class="mb-5">
-          <span class="text-cap">{{ article.categories?.[0]?.name ?? 'BRAK KATEGORII' }}</span>
+          <span class="text-cap">{{ article.categories | categories }}</span>
           <h5>{{ article.title }}</h5>
           <p>{{ article.abstract }}</p>
         </div>
