@@ -30,18 +30,18 @@ export class ArticlesComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      Promise.all(Array.from(document.images)
-        .filter(img => !img.complete)
-        .map(img => new Promise(resolve => {
-        img.onload = img.onerror = resolve
-      })))
-      .then(() => {
-        new HSStickyBlock('.js-sticky-block', {
-          targetSelector: document.getElementById('header')?.classList.contains('navbar-fixed') ? '#header' : null
-        })
-      })
-    }
+    // if (isPlatformBrowser(this.platformId)) {
+    //   Promise.all(Array.from(document.images)
+    //     .filter(img => !img.complete)
+    //     .map(img => new Promise(resolve => {
+    //     img.onload = img.onerror = resolve
+    //   })))
+    //   .then(() => {
+    //     new HSStickyBlock('.js-sticky-block', {
+    //       targetSelector: document.getElementById('header')?.classList.contains('navbar-fixed') ? '#header' : null
+    //     })
+    //   })
+    // }
   }
 
   ngOnInit(): void {

@@ -1,5 +1,5 @@
 import { ApplicationConfig, provideZoneChangeDetection, inject } from '@angular/core';
-import { provideRouter, withComponentInputBinding, withDisabledInitialNavigation } from '@angular/router';
+import { provideRouter, withComponentInputBinding, withDisabledInitialNavigation, withInMemoryScrolling, withRouterConfig } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
@@ -47,6 +47,9 @@ export const appConfig: ApplicationConfig = {
           deps: [TranslateService, Location, LocalizeRouterSettings]
         },
         initialNavigation: true
+      }),
+      withInMemoryScrolling({
+        scrollPositionRestoration: 'top'
       })
     ),
   
