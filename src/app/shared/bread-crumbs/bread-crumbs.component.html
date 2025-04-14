@@ -1,11 +1,11 @@
-@if (breadCrumbs.length > 0) {
+@if (breadCrumbs | async) {
   <div class="border-bottom">
     <div class="container py-4">
       <div class="w-lg-75 mx-lg-auto">
         <!-- Breadcrumb -->
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb mb-0">
-            @for (breadcrumb of breadCrumbs; track breadcrumb.label) {
+            @for (breadcrumb of breadCrumbs | async; track breadcrumb.label) {
                 <li class="breadcrumb-item"
                   [class.active]="breadcrumb.active"
                   [attr.aria-current]="breadcrumb.active ? 'page' : null">

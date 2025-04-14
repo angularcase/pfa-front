@@ -19,20 +19,20 @@
 @if (article) {
 
 <app-search></app-search>
-<app-bread-crumbs></app-bread-crumbs>
+<app-bread-crumbs [breadCrumbs]="breadCrumbsService.get()"></app-bread-crumbs>
 
 <!-- Description -->
 <div class="container content-space-1">
     <div class="w-lg-75 mx-lg-auto">
       <div class="mb-4">
-        <h2 class="h4">{{ article.title }}</h2>
+        <h2 class="h3">{{ article.title }}</h2>
         <p>{{ article.abstract }}</p>
       </div>
   
       <!-- Media -->
       <div class="d-flex align-items-center mb-4">
         <div class="flex-shrink-0">
-          <img class="avatar avatar-circle" src="../assets/img/160x160/img10.jpg" alt="Image Description">
+          <img class="avatar avatar-circle" src="./assets/img/160x160/img10.jpg" alt="Image Description">
         </div>
   
         <div class="flex-grow-1 ms-3">
@@ -49,20 +49,8 @@
         </div>
       </div>
       <!-- End Media -->
-  
-      <p>Space is an incredibly beautiful, fully responsive, and mobile-first projects on the web – it is the perfect starting point for any creative and professional sites. Get started with Space's components and options for laying out your Space project, including SVG components, powerful scripts, fully detailed documentation, and yet developer friendly code.</p>
-  
-      <h4>Free updates and support</h4>
-  
-      <p>We would like to draw your attention to the fact that after purchasing a Space Template copy, you get the right for a <span class="fw-bold">lifetime</span> entitlement to download updates for <span class="fw-bold">FREE!</span> Need help? For any questions or concerns, reach us out at.</p>
-  
-      <ul class="list-py-1">
-        <li><span class="fw-bold">Free updates:</span> Space offers a lifetime free updates. This means you will never pay for any bug-fixes and compatibility upgrades for your theme, ever.</li>
-        <li><span class="fw-bold">Technical support:</span> As always, our Customer Support team is available 24/7 to answer any questions you might have. We will do our best to get back to you within <span class="fw-bold">24-48 hours</span>.</li>
-      </ul>
-  
-      <p>Space Template is built by the team that has customers in the background such us Stanford University, The University of Maryland, University of Victoria and many more Governments, Corporate Agencies. To bring the most modern look of any HTML5 template across all Marketplaces – powered by Bootstrap 4, Space sets the new standard with breathtaking design, top-notch support, and incredible featured packed updates that will save your precious time and gives trendy look to all your web projects. On top of that the creators of Bootstrap have closely monitored the ongoing process of the Space and helped to achieve an enormous result.</p>
-    </div>
+      <div [innerHTML]="article.abstract"></div>
+      </div>
   </div>
   <!-- End Description -->
   

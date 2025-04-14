@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { AfterViewInit, Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ArticleListItemComponent } from "./article-list-item/article-list-item.component";
 import { ArticleDto, ArticlesService, StrapiResponse } from '../../core/services/articles.service';
@@ -17,7 +17,7 @@ declare var HSStickyBlock: any;
   templateUrl: './articles.component.html',
   styleUrl: './articles.component.scss'
 })
-export class ArticlesComponent implements OnInit, AfterViewInit {
+export class ArticlesComponent implements OnInit, AfterViewInit, OnDestroy {
 
   articles: ArticleDto[] = [];
 
@@ -48,7 +48,7 @@ export class ArticlesComponent implements OnInit, AfterViewInit {
     const lang = this.translate.currentLang;
 
     this.breadCrumbsService.set([{
-      label: 'app.articles.title',
+      label: this.translate.instant('app.pages.articles.title'),
       url: 'articles',
       active: true
     }]);
@@ -56,5 +56,9 @@ export class ArticlesComponent implements OnInit, AfterViewInit {
     this.articlesService.getArticles(lang).subscribe((response: ArticleDto[] | null) => {
       this.articles = response ?? [];
     });
+  }
+
+  ngOnDestroy(): void {
+    this.breadCrumbsService.set([]);
   }
 }
