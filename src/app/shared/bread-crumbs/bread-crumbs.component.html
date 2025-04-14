@@ -1,16 +1,22 @@
-<div class="border-bottom">
+@if (breadCrumbs.length > 0) {
+  <div class="border-bottom">
     <div class="container py-4">
       <div class="w-lg-75 mx-lg-auto">
         <!-- Breadcrumb -->
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item">
-              <a href="./page-help-center.html">Help Center</a>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">Getting started</li>
+            @for (breadcrumb of breadCrumbs; track breadcrumb.label) {
+                <li class="breadcrumb-item"
+                  [class.active]="breadcrumb.active"
+                  [attr.aria-current]="breadcrumb.active ? 'page' : null">
+                    {{ breadcrumb.label }}
+                </li>
+            }
+            <!-- <li class="breadcrumb-item active" aria-current="page">Getting started</li> -->
           </ol>
         </nav>
         <!-- End Breadcrumb -->
       </div>
     </div>
   </div>
+}

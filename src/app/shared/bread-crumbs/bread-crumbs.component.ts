@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { BreadCrumb } from '../../core/services/bread-crumbs.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-bread-crumbs',
@@ -8,4 +10,16 @@ import { Component } from '@angular/core';
 })
 export class BreadCrumbsComponent {
 
+  @Input() breadCrumbs: BreadCrumb[] = [];
+
+  constructor(
+    private translate: TranslateService
+  ) { }
+
+  getBreadCrumbs() {
+    return this.breadCrumbs.map(breadcrumb => ({
+      ...breadcrumb,
+      label: this.translate.instant(breadcrumb.label)
+    }));
+  }
 }

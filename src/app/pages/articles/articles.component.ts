@@ -7,7 +7,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { CtoContactUsAirplaneComponent } from '../../shared/cto-contact-us-airplane/cto-contact-us-airplane.component';
 import { SearchComponent } from '../../shared/search/search.component';
 import { BreadCrumbsComponent } from '../../shared/bread-crumbs/bread-crumbs.component';
-
+import { BreadCrumbsService } from '../../core/services/bread-crumbs.service';
 declare var HSStickyBlock: any;
 
 @Component({
@@ -24,7 +24,8 @@ export class ArticlesComponent implements OnInit, AfterViewInit {
   constructor(
     private translate: TranslateService,
     private articlesService: ArticlesService,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
+    protected breadCrumbsService: BreadCrumbsService
   ) {
   }
 
@@ -45,6 +46,12 @@ export class ArticlesComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     const lang = this.translate.currentLang;
+
+    this.breadCrumbsService.set([{
+      label: 'app.articles.title',
+      url: 'articles',
+      active: true
+    }]);
 
     this.articlesService.getArticles(lang).subscribe((response: ArticleDto[] | null) => {
       this.articles = response ?? [];
