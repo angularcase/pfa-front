@@ -37,6 +37,8 @@ export class ArticleComponent implements OnInit, OnDestroy {
 
     this.articlesService.getArticleBySlug(this.slug, lang).subscribe({
       next: (article: ArticleDto) => {
+        console.log(article);
+
         this.article = article;
 
         this.breadCrumbsService.set([

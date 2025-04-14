@@ -43,10 +43,17 @@ export class ArticlesService {
     return this.http.get<StrapiResponse<ArticleDto[]>>(`${this.apiUrl}/articles?${query}`)
     .pipe(map((response: StrapiResponse<ArticleDto[]>) => {
       if (response.data && response.data.length > 0) {
+        response.data[0].helpful = response.data[0].helpful ?? 0;
+        response.data[0].notHelpful = response.data[0].notHelpful ?? 0;
+
         return response.data[0];
       }
       throw new Error('Article not found');
     }));
+  }
+
+  updateArticleHelpfulness(documentId: number, helpful: number): Observable<ArticleDto> {
+    return this.http.put<ArticleDto>(`${this.apiUrl}/articles/${articleId}`, { helpful, notHelpful });
   }
 }
 
@@ -80,6 +87,8 @@ export interface ArticleDto {
   abstract: string | null;
   categories: CategoryDto[] | null;
   downloads: DownloadDto[] | null;
+  helpful: number;
+  notHelpful: number;
 }
 
 export interface CategoryDto {

@@ -59,19 +59,19 @@
     <div class="w-lg-75 mx-lg-auto">
       <div class="bg-light text-center rounded py-10 px-5">
         <div class="mb-3">
-          <h5>Was this article helpful?</h5>
+          <h5>Czy ten artykuł był pomocny?</h5>
         </div>
   
         <div class="d-flex justify-content-center gap-3 mb-3">
           <button type="button" class="btn btn-primary">
-            <i class="bi-hand-thumbs-up me-1"></i> Yes, thanks!
+            <i class="bi-hand-thumbs-up me-1"></i> Tak, dziękuję!
           </button>
           <button type="button" class="btn btn-soft-primary">
-            <i class="bi-hand-thumbs-down me-1"></i> Not, really
+            <i class="bi-hand-thumbs-down me-1"></i> Niezupełnie
           </button>
         </div>
   
-        <p class="small mb-0">93 out of 132 found this helpful</p>
+        <p class="small mb-0">{{ article.helpful  }} out of {{ article.helpful + article.notHelpful }} found this helpful</p>
       </div>
     </div>
   </div>
