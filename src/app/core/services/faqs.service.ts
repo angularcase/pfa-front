@@ -20,7 +20,10 @@ export class FaqsService {
   getFaqs(locale: string): Observable<StrapiResponse<FaqDto[]>> {
     const query = this.qs.getQuery({
       populate: '*',
-      locale: locale
+      locale: locale,
+      filters: {
+        active: true
+      }
     });
     return this.http.get<StrapiResponse<FaqDto[]>>(`${this.apiUrl}/faqs?${query}`);
   }
@@ -29,4 +32,6 @@ export class FaqsService {
 export interface FaqDto {
   question: string;
   answer: string;
+  updatedAt: Date;
+  active: boolean;
 }
