@@ -18,21 +18,46 @@ export class PaginationComponent {
     return Array.from({ length: this.pagination.pageCount }, (_, i) => i + 1);
   }
 
+  openPage(page: number) {
+    const action: OpenPageAction = { type: ActionType.OpenPage, page: page };
+    this.action.emit(action);
+  }
+
   previous() {
     if (this.pagination.page > 1) {
-      this.action.emit(Action.Previous);
+      const action: PreviousAction = { type: ActionType.Previous };
+      this.action.emit(action);
     }
   }
 
   next() {
     if (this.pagination.page < this.pagination.pageCount) {
-      this.action.emit(Action.Next);
+      const action: NextAction = { type: ActionType.Next };
+      this.action.emit(action);
     }
   }
 
 }
 
-export enum Action {
+export interface Action {
+  type: ActionType;
+}
+
+export interface OpenPageAction extends Action {
+  type: ActionType.OpenPage;
+  page: number;
+}
+
+export interface PreviousAction extends Action {
+  type: ActionType.Previous;
+}
+
+export interface NextAction extends Action {
+  type: ActionType.Next;
+}
+
+export enum ActionType {
   Previous = 'Previous',
-  Next = 'Next'
+  Next = 'Next',
+  OpenPage = 'OpenPage'
 }

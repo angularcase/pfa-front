@@ -1,22 +1,22 @@
-@if (pagination) {
+@if (pagination && pagination.total > pagination.pageSize) {
 <nav class="d-sm-flex justify-content-sm-between align-items-sm-center text-center" aria-label="Page navigation example">
     <ul class="pagination justify-content-center justify-content-sm-end mb-sm-0">
         <li class="page-item">
-            <a class="page-link" tabindex="-1" (click)="previous()" [class.disabled]="pagination.page === 1">
+            <a class="page-link cursor-pointer" tabindex="-1" (click)="previous()" [class.disabled]="pagination.page === 1">
                 <span aria-hidden="true">«</span>
             </a>
         </li>
         @for (i of generator(); track i) {
             <li class="page-item" [class.active]="i === pagination.page">
-                <a class="page-link">{{ i }}</a>
+                <a class="page-link cursor-pointer" (click)="openPage(i)">{{ i }}</a>
             </li>
         }
         <li class="page-item">
-            <a class="page-link" (click)="next()" [class.disabled]="pagination.page === pagination.pageCount">
+            <a class="page-link cursor-pointer" (click)="next()" [class.disabled]="pagination.page === pagination.pageCount">
                 <span aria-hidden="true">»</span>
             </a>
         </li>
     </ul>
-        <small class="text-muted">Showing {{ pagination.pageSize }} of {{ pagination.total }}</small>
+        <small class="text-muted">Number of all articles: {{ pagination.total }}</small>
     </nav>
 }
