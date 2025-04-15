@@ -3,10 +3,12 @@ import { FaqDto } from '../../core/services/faqs.service';
 import { FaqsService } from '../../core/services/faqs.service';
 import { TranslateService } from '@ngx-translate/core';
 import { StrapiResponse } from '../../core/services/articles.service';
+import { RouterModule } from '@angular/router';
+import { LocalizeRouterModule, LocalizeRouterPipe } from '@gilsdav/ngx-translate-router';
 
 @Component({
   selector: 'app-faq',
-  imports: [],
+  imports: [RouterModule, LocalizeRouterPipe],
   templateUrl: './faq.component.html',
   styleUrl: './faq.component.scss'
 })
