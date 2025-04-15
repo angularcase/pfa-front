@@ -26,53 +26,18 @@
           <!-- Artykuły -->
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/articles' | localize]">{{ 'app.links.articles' | translate }}</a>
-            <!-- <a class="nav-link" href="#">Artykuły</a> -->
           </li>
 
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/contact' | localize]">{{ 'app.links.contact' | translate }}</a>
-            <!-- <a class="nav-link" href="#">Artykuły</a> -->
           </li>
           <!-- End Artykuły -->
           
-          <!-- Landings -->
-          <li class="hs-has-mega-menu nav-item d-none"
-              data-hs-mega-menu-item-options='{
-                "desktop": {
-                  "maxWidth": "30rem"
-                }
-              }'>
-            <a id="landingsMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle" aria-current="page" href="javascript:;" role="button" aria-expanded="false">Landings</a>
-
-            <!-- Mega Menu -->
-            <div class="hs-mega-menu hs-position-right-fix dropdown-menu" aria-labelledby="landingsMegaMenu" style="min-width: 30rem;">
-              <!-- Main Content -->
-              <div class="navbar-dropdown-menu-inner">
-                <div class="row">
-                  <div class="col-sm mb-3 mb-sm-0">
-                    <span class="dropdown-header">Classic</span>
-                    <a class="dropdown-item" href="#">Corporate</a>
-                    <a class="dropdown-item" href="#">Agency</a>
-                    <a class="dropdown-item" href="#">Consulting</a>
-                    <a class="dropdown-item" href="#">Services</a>
-                    <a class="dropdown-item" href="#">Business</a>
-                  </div>
-
-                  <div class="col-sm">
-                    <span class="dropdown-header">Apps</span>
-                    <a class="dropdown-item" href="#">Growth</a>
-                    <a class="dropdown-item" href="#">SaaS</a>
-                    <a class="dropdown-item" href="#">Wallet</a>
-                    <a class="dropdown-item" href="#">API</a>
-                  </div>
-                </div>
-                <!-- End Row -->
-              </div>
-              <!-- End Main Content -->
-            </div>
-            <!-- End Mega Menu -->
+          <!-- FAQ -->
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/faq' | localize]">{{ 'app.links.faq' | translate }}</a>
           </li>
-          <!-- End Landings -->
+          <!-- End FAQ -->
 
           <!-- Pages -->
           <li class="hs-has-mega-menu nav-item">

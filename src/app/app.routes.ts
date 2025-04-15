@@ -7,6 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Error404Component } from './pages/error-404/error-404.component';
 import { inject } from '@angular/core';
 import { LocalizeRouterService } from '@gilsdav/ngx-translate-router';
+import { FaqComponent } from './pages/faq/faq.component';
 
 export const routes: Routes = [
     {
@@ -28,6 +29,10 @@ export const routes: Routes = [
     {
         path: '404',
         component: Error404Component
+    },
+    {
+        path: 'faq',
+        component: FaqComponent
     },
     // {
     //     path: '**',

@@ -2,6 +2,7 @@
     "ROUTES": {
         "home": "strona-glowna",
         "contact": "kontakt",
+        "faq": "najczęściej-zadawane-pytania",
         "article": "artykul",
         "articles": "artykuly",
         "404": "404"
@@ -16,7 +17,8 @@
         },
         "links": {
             "articles": "Artykuly",
-            "contact": "Kontakt"
+            "contact": "Kontakt",
+            "faq": "FAQ"
         },
         "shared": {
             "languagePicker": {
@@ -33,6 +35,9 @@
             },
             "articles": {
                 "title": "Artykuły"
+            },
+            "faq": {
+                "title": "FAQ"
             }
         }
     }

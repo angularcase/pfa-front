@@ -4,6 +4,7 @@
         "contact": "contact",
         "article": "article",
         "articles": "articles",
+        "faq": "frequently-asked-questions",
         "404": "404"
     },
     "app": {
@@ -16,7 +17,8 @@
         },
         "links": {
             "articles": "Articles",
-            "contact": "Contact"
+            "contact": "Contact",
+            "faq": "FAQ"
         },
         "shared": {
             "languagePicker": {
@@ -33,6 +35,9 @@
             },
             "articles": {
                 "title": "Articles"
+            },
+            "faq": {
+                "title": "FAQ"
             }
         }
     }
