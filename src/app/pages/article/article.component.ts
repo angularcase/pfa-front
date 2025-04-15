@@ -8,10 +8,17 @@ import { SearchComponent } from "../../shared/search/search.component";
 import { CtoContactUsAirplaneComponent } from "../../shared/cto-contact-us-airplane/cto-contact-us-airplane.component";
 import { BreadCrumbsComponent } from '../../shared/bread-crumbs/bread-crumbs.component';
 import { BreadCrumbsService } from '../../core/services/bread-crumbs.service';
-
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-article',
-  imports: [TranslateModule, SearchComponent, CtoContactUsAirplaneComponent, BreadCrumbsComponent],
+  imports: [
+    TranslateModule,
+    SearchComponent, 
+    DatePipe,
+    CtoContactUsAirplaneComponent, 
+    BreadCrumbsComponent,
+
+  ],
   templateUrl: './article.component.html',
   styleUrl: './article.component.scss'
 })
@@ -20,7 +27,11 @@ export class ArticleComponent implements OnInit, OnDestroy {
   @Input() slug!: string;
 
   article!: ArticleDto;
-
+  helpfulnessStatus = {
+    helpful: false,
+    notHelpful: false
+  };
+  
   get apiUrl() {
     return environment.strapiUrl;
   }
@@ -60,6 +71,30 @@ export class ArticleComponent implements OnInit, OnDestroy {
         // this.router.navigate([translatedRoute]);
       }
     });
+  }
+
+  helpful() {
+    if (this.helpfulnessStatus.helpful || this.helpfulnessStatus.notHelpful) {
+      return;
+    }
+
+    this.articlesService.update(this.article.documentId, this.translate.currentLang, { helpful: this.article.helpful + 1 })
+      .subscribe(() => {
+        this.helpfulnessStatus.helpful = true;
+        this.article.helpful++;
+      });
+  }
+
+  notHelpful() {
+    if (this.helpfulnessStatus.helpful || this.helpfulnessStatus.notHelpful) {
+      return;
+    }
+
+    this.articlesService.update(this.article.documentId, this.translate.currentLang, { notHelpful: this.article.notHelpful + 1 })
+      .subscribe(() => {
+        this.helpfulnessStatus.notHelpful = true;
+        this.article.notHelpful++;
+      });
   }
 
   ngOnDestroy(): void {

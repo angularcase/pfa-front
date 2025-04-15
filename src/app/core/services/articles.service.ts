@@ -17,16 +17,26 @@ export class ArticlesService {
     private qs: QsService
   ) { }
 
-  getArticles(locale: string): Observable<ArticleDto[]> {
+  update(documentId: string, locale: string, dto: Partial<ArticleDto>) {
     const query = this.qs.getQuery({
-      populate: '*',
       locale: locale
     });
+    const request: ArticleUpdateRequestDto = {
+      data: dto
+    }
+    return this.http.put<ArticleDto>(`${this.apiUrl}/articles/${documentId}?${query}`, request);
+  }
 
-    return this.http.get<StrapiResponse<ArticleDto[]>>(`${this.apiUrl}/articles?${query}`)
-    .pipe(map((response: StrapiResponse<ArticleDto[]>) => {
-      return response.data;
-    }));
+  getArticles(locale: string, pagination?: PaginationRequestDto): Observable<StrapiResponse<ArticleDto[]>> {
+    let queryParams = {
+      populate: '*',
+      locale: locale,
+      pagination: pagination
+    };
+
+    const query = this.qs.getQuery(queryParams);
+
+    return this.http.get<StrapiResponse<ArticleDto[]>>(`${this.apiUrl}/articles?${query}`);
   }
 
   getArticleBySlug(slug: string, locale: string): Observable<ArticleDto> {
@@ -51,21 +61,24 @@ export class ArticlesService {
       throw new Error('Article not found');
     }));
   }
+}
 
-  updateArticleHelpfulness(documentId: number, helpful: number): Observable<ArticleDto> {
-    return this.http.put<ArticleDto>(`${this.apiUrl}/articles/${articleId}`, { helpful, notHelpful });
-  }
+export interface PaginationRequestDto {
+  page: number;
+  pageSize: number;
+}
+
+export interface PaginationResponseDto {
+  page: number;
+  pageSize: number;
+  pageCount: number;
+  total: number;
 }
 
 export interface StrapiResponse<T> {
   data: T;
   meta: {
-    pagination: {
-      page: number;
-      pageSize: number;
-      pageCount: number;
-      total: number;
-    }
+    pagination: PaginationResponseDto;
   },
   error?: {
     status: number;
@@ -73,6 +86,18 @@ export interface StrapiResponse<T> {
     message: string;
     details: any
   };
+}
+
+export interface HelpfulnessDto {
+  helpful: number;
+}
+
+export interface NotHelpfulDto {
+  notHelpful: number;
+}
+
+export interface ArticleUpdateRequestDto {
+  data: Partial<ArticleDto>;
 }
 
 export interface ArticleDto {
