@@ -18,17 +18,16 @@
           <!-- Accordion Item -->
           <div class="accordion-item">
             <div class="accordion-header" [id]="`headingOneEg${i}`">
-            <a class="accordion-button"
+            <a class="accordion-button collapsed"
                 role="button"
                 data-bs-toggle="collapse"
                 [attr.data-bs-target]="`#collapseOneEg${i}`"
-                [attr.aria-expanded]="first ? false : true"
-                aria-controls="collapseOneEg1">
+                [attr.aria-expanded]="false"
+                [attr.aria-controls]="`collapseOneEg${i}`">
               {{ faq.question }}
             </a>
           </div>
           <div [id]="`collapseOneEg${i}`"
-            [class.show]="first"
             class="accordion-collapse collapse"
             [attr.aria-labelledby]="`headingOneEg${i}`"
             data-bs-parent="#accordionFAQEg1">
