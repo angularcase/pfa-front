@@ -27,6 +27,15 @@ export class ArticlesService {
     return this.http.put<ArticleDto>(`${this.apiUrl}/articles/${documentId}?${query}`, request);
   }
 
+  getPopularArticles(locale: string): Observable<StrapiResponse<ArticleDto[]>> {
+    const query = this.qs.getQuery({
+      populate: '*',
+      locale: locale,
+      sort: ['helpful:desc']
+    });
+    return this.http.get<StrapiResponse<ArticleDto[]>>(`${this.apiUrl}/articles?${query}`);
+  }
+
   getArticles(locale: string, pagination?: PaginationRequestDto): Observable<StrapiResponse<ArticleDto[]>> {
     let queryParams = {
       populate: '*',

@@ -32,7 +32,7 @@ export class ArticlesComponent implements OnInit, AfterViewInit, OnDestroy {
   articles: ArticleDto[] = [];
   pagination!: PaginationResponseDto;
 
-  public readonly PageSize = 3;
+  public readonly PageSize = 5;
 
   paginationActionsMap: Record<ActionType, (action: Action) => void> = {
     [ActionType.Previous]: (action: Action) => { 

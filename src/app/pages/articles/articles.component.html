@@ -76,8 +76,8 @@
             <!-- List -->
             <ul class="list-unstyled list-py-2">
 
-                @for (article of articles; track article.slug) {
-                    <app-article-list-item [article]="article"></app-article-list-item>
+                @for (article of articles; track article.slug; let last = $last) {
+                    <app-article-list-item [last]="last" [article]="article"></app-article-list-item>
                 }
 
             </ul>

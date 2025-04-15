@@ -14,4 +14,5 @@ import { CategoriesPipe } from '../../../core/pipes/categories.pipe';
 })
 export class ArticleListItemComponent {
     @Input() article!: ArticleDto;
+    @Input() last: boolean = false;
 }

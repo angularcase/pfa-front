@@ -1,0 +1,39 @@
+<!-- List -->
+<div class="container content-space-1">
+    <div class="w-lg-65 text-center mx-lg-auto mb-7"><h3>Popularne artykuły</h3></div>
+    <div class="w-lg-75 mx-lg-auto">
+      <div class="row">
+        <div class="col-sm-6">
+          <!-- List -->
+          <ul class="list-unstyled list-py-2 mb-0">
+            
+            <!-- only odd articles -->
+            @for (article of articles; track article.id; let i = $index) {
+              @if (i % 2 === 0) {
+                <app-popular-article-item [article]="article"></app-popular-article-item>
+              }
+            }
+          </ul>
+          <!-- End List -->
+        </div>
+        <!-- End Col -->
+  
+        <div class="col-sm-6">
+          <!-- List -->
+          <ul class="list-unstyled list-py-2 mb-0">
+            <!--  only even articles -->
+            @for (article of articles; track article.id; let i = $index;) {
+              @if (i % 2 === 1) {
+                <app-popular-article-item [article]="article"></app-popular-article-item>
+              }
+            }
+  
+          </ul>
+          <!-- End List -->
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+    </div>
+  </div>
+  <!-- End List -->

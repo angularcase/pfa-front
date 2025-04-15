@@ -10,6 +10,7 @@ import { provideTranslateService, TranslateLoader, TranslateService } from '@ngx
 
 import { LocalizeParser, LocalizeRouterSettings, ManualParserLoader, withLocalizeRouter } from '@gilsdav/ngx-translate-router';
 import { Location } from '@angular/common';
+import { environment } from '../environments/environment';
 
 const httpLoaderFactory: (http: HttpClient) => TranslateHttpLoader = (http: HttpClient) =>
   new TranslateHttpLoader(http, './i18n/', '.json');
@@ -30,7 +31,7 @@ export function createTranslateRouteLoader(
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }), 
-    provideClientHydration(withEventReplay()),
+    ...(environment.hydration ? [provideClientHydration(withEventReplay())] : []),
     provideTranslateService({
       defaultLanguage: Language.PL,
       loader: {
