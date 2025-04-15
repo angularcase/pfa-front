@@ -29,14 +29,12 @@ declare var HSStickyBlock: any;
 })
 export class ArticlesComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  // @ViewChild('articlesList') articlesList!: ElementRef;
-
   articles: ArticleDto[] = [];
   pagination!: PaginationResponseDto;
 
   public readonly PageSize = 3;
 
-  paginationActionMap: Record<ActionType, (action: Action) => void> = {
+  paginationActionsMap: Record<ActionType, (action: Action) => void> = {
     [ActionType.Previous]: (action: Action) => { 
       this.load(this.pagination.page - 1, true)
     },
@@ -59,7 +57,7 @@ export class ArticlesComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   onPaginationAction(action: Action) {
-    this.paginationActionMap[action.type](action);
+    this.paginationActionsMap[action.type](action);
   }
 
   ngAfterViewInit(): void {
@@ -100,7 +98,6 @@ export class ArticlesComponent implements OnInit, AfterViewInit, OnDestroy {
       this.articles = response.data ?? [];
 
       if (scrollToTop) {
-        
         this.scroller.scrollToAnchor('reload-scroll-target');
       }
     });
