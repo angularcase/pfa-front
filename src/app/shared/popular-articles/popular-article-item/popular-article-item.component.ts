@@ -4,8 +4,10 @@ import { RouterLink } from '@angular/router';
 import { LocalizeRouterModule } from '@gilsdav/ngx-translate-router';
 
 @Component({
-  selector: 'app-popular-article-item',
+  // selector: 'app-popular-article-item',
+  selector: 'li[app-popular-article-item]',
   imports: [RouterLink, LocalizeRouterModule],
+  host: { class: 'd-flex' },
   templateUrl: './popular-article-item.component.html',
   styleUrl: './popular-article-item.component.scss'
 })
